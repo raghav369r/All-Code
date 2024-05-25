@@ -1,0 +1,94 @@
+class cap{
+	public static void main(String a[]){
+		StringBuffer str=new StringBuffer("king of the kings");
+		char c;
+		for(int i=0;i<str.length();i++){
+			if((i==0 || str.charAt(i-1)==' ')){
+				c=str.charAt(i);
+				c=Character.toUpperCase(c);
+				String s=String.valueOf(c);
+				str.replace(i,i+1,s);
+			}
+				
+		}
+		System.out.println(str);
+	}
+}
+
+
+import java.util.Scanner;
+class test2{
+	static void fabii(int range){
+		int a=0,b=1,c=0;
+		while(c<=range){
+			System.out.print(c+"  ");
+			a=b;
+			b=c;
+			c=a+b;
+		}
+	}
+	static int fabiirec(int range){
+		if(range==0||range==1) return 0;
+		else
+			return(fabiirec(range-1)+fabiirec(n-2));
+	}
+	public static void main(String a[]){
+		Scanner scan=new Scanner(System.in);
+		System.out.print("Enetr range to print fabii series: ");
+		int range=scan.nextInt();
+		fabiirec(range);
+	}
+}
+
+import java.util.Scanner;
+class order{
+	public static void main(String a[]){
+		int i,j,num;
+		Scanner scan=new Scanner(System.in);
+		System.out.print("Enter no of elements: ");
+		num=scan.nextInt();
+		String arr[]=new String[num];
+		System.out.print("Enter strings: ");
+		for(i=0;i<num;i++)
+			arr[i]=scan.next();
+		for(i=0;i<num-1;i++){
+			for(j=i+1;j<num;j++){
+				if(arr[i].compareTo(arr[j])>0){
+					String tmp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=tmp;
+				}
+			}
+		}
+		System.out.println("after arranging: ");
+		for(i=0;i<num;i++) System.out.println(arr[i]);
+	}
+}
+
+import java.util.Scanner;
+class test{
+	public static void main(String a[]){
+		Scanner scan=new Scanner(System.in);
+		int num,i,j,k,l,sum;
+		System.out.print("Enter no to check: ");
+		num=scan.nextInt();
+		for(i=2;i<num;i++){
+			int check1=0;
+			for(j=2;j<=i/2;j++){
+				if(i%j==0) check1=1; 
+			}
+			if(check1==0){
+				for(k=2;k<num;k++){
+					int check2=0;
+					for(l=2;l<=k/2;l++)
+						if(k%l==0) check2=1;
+					if(check2==0 && (i+k)==num){
+						System.out.println(i+" + "+k+" = "+num);
+						return;
+					}
+				}
+			}
+		}
+		System.out.println("Can't expressed as sun of two numbers!!");
+	}
+}
